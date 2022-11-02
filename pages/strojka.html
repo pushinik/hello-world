@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+body {
+    font-size: 18px;
+    user-select: none;
+}
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.menu {
+    margin: 5px 0;
+}
+.menu-title {
+    padding: 10px;
+    border: 2px solid #eee;
+    color: #4a4a4a;
+    border-radius: 19px;
+    font-weight: bold;
+}
+        .box {
+            display: inline-block;
+            width: 190px;
+            height: 190px;
+            margin: 5px;
+            border: 1px solid #ebebeb;
+            border-radius: 19px;
+            padding: 5px;
+        }
+            .box span {
+                white-space: nowrap;
+            }
+
+            .box .preview {
+                width: 150px;
+                height: 150px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container" id="app"></div>
+    <script>
+        (function () {
+
+
+    window.products = [
+        {id: 0, name: "Пиломатериалы", skidka: 10, preview: "stroi_1.png"},
+        {id: 1, name: "Брус строганный", parent: 0, price: 1000, preview: "stroi_3.png"},
+        {id: 2, name: "Доска сухая", parent: 0, price: 2000, preview: "stroi_4.png"},
+        {id: 3, name: "Металлопрокат", skidka: 30, preview: "stroi_2.png"},
+        {id: 4, name: "Арматура", parent: 3, price: 2000, preview: "stroi_5.png"},
+        {id: 5, name: "Сетка арматурная", parent: 3, price: 500, preview: "stroi_6.png"}
+            ];
+
+
+            window.chooseMainProduct = function (id, summa) {
+                var countall = 0;
+                var count;
+                var price;
+                var product;
+                try {
+                    summa = parseInt(summa);
+                } catch (e) {
+                    return;
+                }
+                myHtml = '<div class="menu" onclick="backToMenu();"><div class="menu-title">Назад</div></div>';
+                html2 = '';
+                for (var i = 0; i < products.length; i++) {
+                    product = products[i];
+                    if (product.parent != null && product.parent == id) {
+                        price = product.price * (100 - products[id].skidka) / 100;
+                        count = Math.floor(summa / price);
+                        if (count > 0) {
+                            html2 += '<div class="box"><span>' + product.name + ': ' + count + ' шт</span><img class="preview" src="' + product.preview + '"></div>';
+                            countall++;
+                        }
+                    }
+                }
+                myHtml += '<h3>Можно купить (' + countall + '):</h3>';
+                if (countall < 1) {
+                myHtml += 'Пусто.';
+                }
+                document.getElementById("app").innerHTML = myHtml + html2;
+            };
+
+
+            window.backToMenu = function () {
+                var product;
+                var productName;
+                var myHtml = '';
+                var html2 = '';
+                myHtml = '<h3>Все товары</h3>';
+                html2 = '<h3>Выберите категорию:</h3>';
+        for (var i = 0; i < products.length; i++) {
+            product = products[i];
+            productName = product.name;
+            if (product.parent != null) {
+                continue;
+            }
+            if (product.skidka != null) {
+                productName += " | Скидка: " + product.skidka + "%";
+            }
+            myHtml += `
+        <div class="menu" onclick="this.children[1].hidden=!this.children[1].hidden;">
+            <div class="menu-title">` + productName + `</div>
+            <ul class="menu-content" hidden="true">`;
+            for (var j = 0; j < products.length; j++) {
+                var child = products[j];
+                if (child.parent != null && child.parent == product.id) {
+                    myHtml += '<li>' + child.name + ': ' + child.price + ' р</li>';
+                }
+            }
+            myHtml += `</ul>
+        </div>
+    `;
+            html2 += '<div class="box" onclick="chooseMainProduct(' + product.id + ',prompt(\'Сумма денег на покупку:\'));"><img class="preview" src="' + product.preview + '"></div>';
+                }
+                document.getElementById("app").innerHTML = myHtml + html2;
+            };
+
+
+            backToMenu();
+
+
+})();
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.figure {
+    position: relative;
+    width: 140px;
+    height: 200px;
+    background: #393535;
+    border-radius: 100px;
+    margin: 50px;
+}
+.e_1, .e_2, .e_3, .e_4, .e_5, .e_4::after, .e_5::after, .e_6, .e_7, .e_8, .e_9, .e_10, .e_10::after, .e_11, .e_11::after, .e_12, .e_12::after, .e_13 {
+    position: absolute;
+}
+.e_1, .e_2, .e_3 {
+    background: #fafafa;
+    border-radius: 100%;
+}
+.e_1 {
+    width: 100px;
+    height: 120px;
+    bottom: 10px;
+    left: 20px;
+}
+.e_2, .e_3 {
+    width: 60px;
+    height: 60px;
+    bottom: 100px;
+}
+.e_2 {
+    left: 20px;
+}
+.e_3 {
+    right: 20px;
+}
+.e_4, .e_5 {
+    width: 14px;
+    height: 20px;
+    bottom: 120px;
+    background: #393535;
+    border-radius: 100%;
+}
+.e_4 {
+    left: 43px;
+}
+.e_5 {
+    right: 43px;
+}
+.e_4::after, .e_5::after {
+    content: " ";
+    width: 5px;
+    height: 7px;
+    background: #ffffff;
+    position: absolute;
+    border-radius: 100%;
+    top: 4px;
+}
+.e_4::after {
+    left: 4px;
+}
+.e_5::after {
+    right: 6px;
+}
+.e_6, .e_7 {
+    width: 20px;
+    height: 60px;
+    bottom: 60px;
+    background: #393535;
+    border-radius: 100%;
+}
+.e_6 {
+    left: -20px;
+    transform: rotateZ(45deg);
+}
+.e_7 {
+    right: -20px;
+    transform: rotateZ(-45deg);
+}
+.e_8, .e_9 {
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 20px solid #ce833b;
+    bottom: -20px;
+    z-index: -1;
+}
+.e_8 {
+    left: 30px;
+    transform: rotateZ(10deg);
+}
+.e_9 {
+    right: 30px;
+    transform: rotateZ(-10deg);
+}
+.e_10, .e_10::after {
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+}
+.e_10 {
+    left: 30px;
+    border-right: 20px solid #e5a261;
+    transform: scaleY(0.5);
+    bottom: 90px;
+}
+.e_10::after {
+    content: " ";
+    left: 20px;
+    border-left: 20px solid #ce833b;
+    bottom: -20px;
+}
+.e_11 {
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(to right, #e5a261, #ce833b);
+    top: -10px;
+    left: 10px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    overflow: hidden;
+}
+.e_11::after {
+    content: " ";
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#fafafa, transparent 50%);
+    top: -25px;
+    left: -15px;
+}
+.e_12 {
+    width: 20px;
+    height: 15px;
+    background: #e5a261;
+    top: -20px;
+    left: 60px;
+    border-radius: 100%;
+}
+.e_12::after {
+    content: " ";
+    width: 15px;
+    height: 10px;
+    background: #ffd800;
+    top: 2.5px;
+    left: 2.5px;
+    border-radius: 100%;
+}
+.e_13 {
+    width: 130px;
+    height: 10px;
+    background: #ce833b;
+    top: 25px;
+    left: 5px;
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="figure">
+        <div class="e_1"></div>
+        <div class="e_2"></div>
+        <div class="e_3"></div>
+        <div class="e_4"></div>
+        <div class="e_5"></div>
+        <div class="e_6"></div>
+        <div class="e_7"></div>
+        <div class="e_8"></div>
+        <div class="e_9"></div>
+        <div class="e_10"></div>
+        <div class="e_11"></div>
+        <div class="e_12"></div>
+        <div class="e_13"></div>
+    </div>
+</body>
+</html>

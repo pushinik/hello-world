@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+.frog {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    max-width: 271px;
+}
+.frog:active .frog3, .frog:not(:active) .frog2, .frog:not(:hover) .frog3 {
+    visibility: hidden;
+}
+.frog:active {
+    animation: frog 2s;
+}
+.frog:active .frog2 {
+    animation: frog2 1s;
+    transform-origin: bottom;
+}
+.frog:hover .frog3 {
+    transform: translateX(-150px);
+    animation: frog3 1s;
+}
+.frogtext {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #008000;
+    left: 120px;
+    top: 0;
+}
+.frog:hover .frogtext::after {
+    content: "Ты кто?";
+}
+.frog:active .frogtext::after {
+    content: "Принцесса";
+}
+@keyframes frog {
+    50% {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes frog2 {
+    from {
+        transform: scaleY(0);
+    }
+}
+@keyframes frog3 {
+    from {
+        transform: translateX(0);
+    }
+}
+        </style>
+    </head>
+    <body>
+        <div class="frog">
+            <img class="frog1" src="mini-frog1.png">
+            <div class="frogtext"></div>
+            <img class="frog2" src="mini-frog2.png">
+            <img class="frog3" src="mini-frog3.png">
+        </div>
+    </body>
+</html>
