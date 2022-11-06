@@ -139,23 +139,23 @@
             var item;
             var result;
             myBlog.pause = false;
-            if (this.status != 200) {
-                alert("Проверьте интернет-соединение.");
-                return;
-            }
-            try {
-                result = JSON.parse(this.responseText);
-            } catch (e) {
-                result = {};
-            }
-            if (result.items != null) {
-                if (result.home_page_url != null) {
-                    for (var i = 0; i < result.items.length; i++) {
-                        item = result.items[i];
-                        item.url = item.url.replace(result.home_page_url, "");
-                    }
+            if (this.status == 200) {
+                try {
+                    result = JSON.parse(this.responseText);
+                } catch (e) {
+                    result = {};
                 }
-                myBlog.items = result.items;
+                if (result.items != null) {
+                    if (result.home_page_url != null) {
+                        for (var i = 0; i < result.items.length; i++) {
+                            item = result.items[i];
+                            item.url = item.url.replace(result.home_page_url, "");
+                        }
+                    }
+                    myBlog.items = result.items;
+                }
+            } else {
+                alert("Не удалось загрузить контент.");
             }
             myBlog.update_calendar();
         };
