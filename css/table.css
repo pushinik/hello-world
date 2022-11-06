@@ -1,0 +1,108 @@
+﻿.table-container {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table-container td {
+    height: 100px;
+    background: #fff;
+    text-align: center;
+    font-size: 32px;
+    position: relative;
+    width: 25%;
+}
+
+.table-container, .table-container td {
+    border: 1px solid #f3b4b4;
+}
+
+h2 {
+    padding:10px;
+    text-align:center;
+}
+
+.br-green, .br-dot {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    z-index: 1;
+}
+
+.br-green {
+    border: 2px dashed #29e42d;
+}
+
+.br-dot {
+    border: 2px dotted #5cbae4;
+    color: #5bbb3f;
+}
+
+.sm {
+    background: url("../img/0.png");
+}
+
+.sm:hover {
+    background: url("../img/1.png");
+}
+
+.sm:active {
+    background: url("../img/2.png");
+}
+
+.sm2::before {
+    font-size: 18px;
+    content: "Человечек";
+}
+
+.sm2:hover {
+    background: url("../img/3.png");
+}
+
+.sm2:hover::before {
+    content: "";
+}
+
+.sm, .sm:hover, .sm:active, .sm2, .sm2:hover {
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    transition: background 150ms;
+    display: inline-block;
+}
+
+.menu {
+    font-size: 20px;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 5px;
+    background: #eee;
+    border-radius: 5px;
+    position: relative;
+}
+
+.b-menu {
+    position: absolute;
+    z-index: 100;
+}
+
+.menu li:not(:hover) .b-menu {
+    visibility: hidden;
+}
+
+.b-menu li {
+    display: block;
+    top: 5px;
+    margin: 5px 0;
+    transition: background 150ms, color 150ms;
+}
+
+.b-menu li:hover {
+    background: #ee9528;
+    color: #fff;
+}

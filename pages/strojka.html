@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
-        *{
-            box-sizing: border-box;
-        }
-body {
-    font-size: 18px;
-    user-select: none;
-}
-.container {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
+    <head>
+        <meta charset="utf-8">
+        <title>Р—Р°РґР°РЅРёРµ 5 | Hello, world!</title>
+        <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
 .menu {
     margin: 5px 0;
 }
@@ -25,38 +17,87 @@ body {
     border-radius: 19px;
     font-weight: bold;
 }
-        .box {
-            display: inline-block;
-            width: 190px;
-            height: 190px;
-            margin: 5px;
-            border: 1px solid #ebebeb;
-            border-radius: 19px;
-            padding: 5px;
-        }
-            .box span {
-                white-space: nowrap;
-            }
-
-            .box .preview {
-                width: 150px;
-                height: 150px;
-            }
-    </style>
-</head>
-<body>
-    <div class="container" id="app"></div>
-    <script>
-        (function () {
+.box {
+    display: inline-block;
+    width: 190px;
+    height: 190px;
+    margin: 5px;
+    border: 1px solid #ebebeb;
+    border-radius: 19px;
+    padding: 5px;
+}
+.box span {
+    white-space: nowrap;
+}
+.box .preview {
+    width: 150px;
+    height: 150px;
+}
+#app {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+}
+</style>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <div id="menu" class="c-center">
+                    <img id="btnclose" src="../img/close.png">
+                    <img class="logo" src="../img/logo.png">
+                    <ul>
+                        <a href="../index.html"><li>Р“Р»Р°РІРЅР°СЏ</li></a>
+                        <a href="../play.html"><li>РњРёРЅРё-РёРіСЂР°</li></a>
+                        <a href="../about.html"><li>Рћ СЃР°Р№С‚Рµ</li></a>
+                    </ul>
+                </div>
+                <div class="c-center mobile">
+                    <img id="btnmenu" src="../img/menu.png">
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="c-center">
+                <article>
+                    <div class="c-box">
+                        <h4>Р—Р°РґР°РЅРёРµ 5</h4>
+                        <p>
+                            <a href="../img/var1.PNG" download>РЎРєР°С‡Р°С‚СЊ РІР°СЂРёР°РЅС‚ 1.</a><br>
+                            <a href="../img/var2.PNG" download>РЎРєР°С‡Р°С‚СЊ РІР°СЂРёР°РЅС‚ 2.</a><br>
+                            <a href="../img/var3.PNG" download>РЎРєР°С‡Р°С‚СЊ РІР°СЂРёР°РЅС‚ 3.</a>
+                        </p>
+                    </div>
+                    <div class="c-box">
+                        <h4>РџСЂРёРјРµСЂ СЂР°Р±РѕС‚С‹</h4>
+                        <div class="example" id="app"></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="c-center">
+                    <ul>
+                        <a href="../index.html"><li>Р“Р»Р°РІРЅР°СЏ</li></a>
+                        <a href="../about.html"><li>Рћ СЃР°Р№С‚Рµ</li></a>
+                        <a href="../sitemap.html"><li>РљР°СЂС‚Р° СЃР°Р№С‚Р°</li></a>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+        <script>(function () {
 
 
     window.products = [
-        {id: 0, name: "Пиломатериалы", skidka: 10, preview: "stroi_1.png"},
-        {id: 1, name: "Брус строганный", parent: 0, price: 1000, preview: "stroi_3.png"},
-        {id: 2, name: "Доска сухая", parent: 0, price: 2000, preview: "stroi_4.png"},
-        {id: 3, name: "Металлопрокат", skidka: 30, preview: "stroi_2.png"},
-        {id: 4, name: "Арматура", parent: 3, price: 2000, preview: "stroi_5.png"},
-        {id: 5, name: "Сетка арматурная", parent: 3, price: 500, preview: "stroi_6.png"}
+        {id: 0, name: "РџРёР»РѕРјР°С‚РµСЂРёР°Р»С‹", skidka: 10, preview: "../img/stroi_1.png"},
+        {id: 1, name: "Р‘СЂСѓСЃ СЃС‚СЂРѕРіР°РЅРЅС‹Р№", parent: 0, price: 1000, preview: "../img/stroi_3.png"},
+        {id: 2, name: "Р”РѕСЃРєР° СЃСѓС…Р°СЏ", parent: 0, price: 2000, preview: "../img/stroi_4.png"},
+        {id: 3, name: "РњРµС‚Р°Р»Р»РѕРїСЂРѕРєР°С‚", skidka: 30, preview: "../img/stroi_2.png"},
+        {id: 4, name: "РђСЂРјР°С‚СѓСЂР°", parent: 3, price: 2000, preview: "../img/stroi_5.png"},
+        {id: 5, name: "РЎРµС‚РєР° Р°СЂРјР°С‚СѓСЂРЅР°СЏ", parent: 3, price: 500, preview: "../img/stroi_6.png"}
             ];
 
 
@@ -70,7 +111,7 @@ body {
                 } catch (e) {
                     return;
                 }
-                myHtml = '<div class="menu" onclick="backToMenu();"><div class="menu-title">Назад</div></div>';
+                myHtml = '<div class="menu" onclick="backToMenu();"><div class="menu-title">РќР°Р·Р°Рґ</div></div>';
                 html2 = '';
                 for (var i = 0; i < products.length; i++) {
                     product = products[i];
@@ -78,14 +119,14 @@ body {
                         price = product.price * (100 - products[id].skidka) / 100;
                         count = Math.floor(summa / price);
                         if (count > 0) {
-                            html2 += '<div class="box"><span>' + product.name + ': ' + count + ' шт</span><img class="preview" src="' + product.preview + '"></div>';
+                            html2 += '<div class="box"><span>' + product.name + ': ' + count + ' С€С‚</span><img class="preview" src="' + product.preview + '"></div>';
                             countall++;
                         }
                     }
                 }
-                myHtml += '<h3>Можно купить (' + countall + '):</h3>';
+                myHtml += '<h3>РњРѕР¶РЅРѕ РєСѓРїРёС‚СЊ (' + countall + '):</h3>';
                 if (countall < 1) {
-                myHtml += 'Пусто.';
+                myHtml += 'РџСѓСЃС‚Рѕ.';
                 }
                 document.getElementById("app").innerHTML = myHtml + html2;
             };
@@ -96,8 +137,8 @@ body {
                 var productName;
                 var myHtml = '';
                 var html2 = '';
-                myHtml = '<h3>Все товары</h3>';
-                html2 = '<h3>Выберите категорию:</h3>';
+                myHtml = '<h3>Р’СЃРµ С‚РѕРІР°СЂС‹</h3>';
+                html2 = '<h3>Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚РµРіРѕСЂРёСЋ:</h3>';
         for (var i = 0; i < products.length; i++) {
             product = products[i];
             productName = product.name;
@@ -105,7 +146,7 @@ body {
                 continue;
             }
             if (product.skidka != null) {
-                productName += " | Скидка: " + product.skidka + "%";
+                productName += " | РЎРєРёРґРєР°: " + product.skidka + "%";
             }
             myHtml += `
         <div class="menu" onclick="this.children[1].hidden=!this.children[1].hidden;">
@@ -114,13 +155,13 @@ body {
             for (var j = 0; j < products.length; j++) {
                 var child = products[j];
                 if (child.parent != null && child.parent == product.id) {
-                    myHtml += '<li>' + child.name + ': ' + child.price + ' р</li>';
+                    myHtml += '<li>' + child.name + ': ' + child.price + ' СЂ</li>';
                 }
             }
             myHtml += `</ul>
         </div>
     `;
-            html2 += '<div class="box" onclick="chooseMainProduct(' + product.id + ',prompt(\'Сумма денег на покупку:\'));"><img class="preview" src="' + product.preview + '"></div>';
+            html2 += '<div class="box" onclick="chooseMainProduct(' + product.id + ',prompt(\'РЎСѓРјРјР° РґРµРЅРµРі РЅР° РїРѕРєСѓРїРєСѓ:\'));"><img class="preview" src="' + product.preview + '"></div>';
                 }
                 document.getElementById("app").innerHTML = myHtml + html2;
             };
@@ -130,6 +171,6 @@ body {
 
 
 })();
-    </script>
-</body>
+</script>
+    </body>
 </html>

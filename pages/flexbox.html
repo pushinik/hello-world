@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Задание 4 | Hello, world!</title>
+        <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
+.frog {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    max-width: 271px;
+}
+.frog:active .frog3, .frog:not(:active) .frog2, .frog:not(:hover) .frog3 {
+    visibility: hidden;
+}
+.frog:active {
+    animation: frog 2s;
+}
+.frog:active .frog2 {
+    animation: frog2 1s;
+    transform-origin: bottom;
+}
+.frog:hover .frog3 {
+    transform: translateX(-150px);
+    animation: frog3 1s;
+}
+.frogtext {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #008000;
+    left: 120px;
+    top: 0;
+}
+.frog:hover .frogtext::after {
+    content: "Ты кто?";
+}
+.frog:active .frogtext::after {
+    content: "Принцесса";
+}
+@keyframes frog {
+    50% {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes frog2 {
+    from {
+        transform: scaleY(0);
+    }
+}
+@keyframes frog3 {
+    from {
+        transform: translateX(0);
+    }
+}
+</style>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <div id="menu" class="c-center">
+                    <img id="btnclose" src="../img/close.png">
+                    <img class="logo" src="../img/logo.png">
+                    <ul>
+                        <a href="../index.html"><li>Главная</li></a>
+                        <a href="../play.html"><li>Мини-игра</li></a>
+                        <a href="../about.html"><li>О сайте</li></a>
+                    </ul>
+                </div>
+                <div class="c-center mobile">
+                    <img id="btnmenu" src="../img/menu.png">
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="c-center">
+                <article>
+                    <div class="c-box">
+                        <h4>Задание 4</h4>
+                        <p>1) Создать элемент flexbox, который состоит  из заданных изображений и слов.<br>
+2) Размер не более 200px.<br>
+3) По наведению мыши и нажатию его состояние и содержимое меняется.<br>
+4) Приветствуется использование дополнительных эффектов.<br>
+5) Флексбокс располагается на любой странице сайта.<br>
+<a href="../img/Безымянный.png" download>Скачать варианты.</a></p>
+                    </div>
+                    <div class="c-box">
+                        <h4>Пример работы</h4>
+                        <div class="example">
+                            <div class="frog">
+                                <img class="frog1" src="../img/mini-frog1.png">
+                                <div class="frogtext"></div>
+                                <img class="frog2" src="../img/mini-frog2.png">
+                                <img class="frog3" src="../img/mini-frog3.png">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="c-center">
+                    <ul>
+                        <a href="../index.html"><li>Главная</li></a>
+                        <a href="../about.html"><li>О сайте</li></a>
+                        <a href="../sitemap.html"><li>Карта сайта</li></a>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+    </body>
+</html>

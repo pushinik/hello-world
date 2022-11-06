@@ -3,24 +3,99 @@
     <head>
         <meta charset="utf-8">
         <title>Hello, world!</title>
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
-            <div class="header">
-                <ul>
-                    <li>Главная</li>
-                    <li>О сайте</li>
-                </ul>
+            <div class="topbar">
+                <span>Время: </span>
+                <span id="time"></span>
+                <span>| Погода в СПб: </span>
+                <span id="weather"></span>
+            </div>
+            <div id="header">
+                <div id="menu" class="c-center">
+                    <img id="btnclose" src="img/close.png">
+                    <img class="logo" src="img/logo.png">
+                    <ul>
+                        <a href="index.html"><li class="selected">Главная</li></a>
+                        <a href="play.html"><li>Мини-игра</li></a>
+                        <a href="about.html"><li>О сайте</li></a>
+                    </ul>
+                </div>
+                <div class="c-center mobile">
+                    <img id="btnmenu" src="img/menu.png">
+                </div>
             </div>
         </header>
-        <div class="container">
-            <div class="c-left"></div>
-            <div class="c-right"></div>
+        <div class="slider">
+            <ul class="slides">
+                <input type="radio" name="radio-btn" id="img-1" checked>
+                <div class="slide-container">
+                    <div class="slide">
+                        <img src="img/mouse1.png">
+                    </div>
+                    <div class="nav">
+                        <label for="img-3" class="prev"><img src="img/left.png"></label>
+                        <label for="img-2" class="next"><img src="img/right.png"></label>
+                    </div>
+                </div>
+                <input type="radio" name="radio-btn" id="img-2">
+                <div class="slide-container">
+                    <div class="slide">
+                      <img src="img/Безымянный.png">
+                    </div>
+                    <div class="nav">
+                        <label for="img-1" class="prev"><img src="img/left.png"></label>
+                        <label for="img-3" class="next"><img src="img/right.png"></label>
+                    </div>
+                </div>
+                <input type="radio" name="radio-btn" id="img-3">
+                <div class="slide-container">
+                    <div class="slide">
+                      <img src="img/задание.PNG">
+                    </div>
+                    <div class="nav">
+                        <label for="img-2" class="prev"><img src="img/left.png"></label>
+                        <label for="img-1" class="next"><img src="img/right.png"></label>
+                    </div>
+                </div>
+                <div class="nav-dots">
+                    <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                    <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                    <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+                </div>
+            </ul>
+        </div>
+        <div class="container mainpage">
+            <div class="c-center">
+                <div class="c-left">
+                    <h4>Архив</h4>
+                    <div class="c-box" id="calendar"></div>
+                </div>
+                <div id="content" class="c-right"></div>
+            </div>
         </div>
         <footer>
-            <div class="footer"></div>
+            <div class="footer">
+                <div class="c-center">
+                    <ul>
+                        <a href="index.html"><li>Главная</li></a>
+                        <a href="about.html"><li>О сайте</li></a>
+                        <a href="sitemap.html"><li>Карта сайта</li></a>
+                    </ul>
+                </div>
+            </div>
         </footer>
         <script src="js/index.js"></script>
+        <script>
+(function () {
+    window.addEventListener("load", function () {
+        myBlog.load();
+    });
+})();
+        </script>
     </body>
 </html>

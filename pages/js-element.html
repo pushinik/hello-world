@@ -1,126 +1,168 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .app {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        #notelist {
-            width: 100%;
-            display: inline-flex;
-            list-style-type: none;
-            user-select: none;
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        #notelist li {
-            line-height: 250px;
-            height: 150px;
-            cursor: pointer;
-            text-align: center;
-            flex: 1 1 auto;
-        }
-        #notelist li:not(:first-child) {
-            margin-left: 5px;
-        }
-        #notelist li:active {
-            transform: translateY(-5%);
-        }
-        #notetext {
-            width: 100%;
-            padding: 5px;
-            font-size: 20px;
-            margin: 5px 0;
-            border: 1px solid #eeeeee;
-            outline: none;
-        }
-        #noteanim {
-            position: relative;
-            height: 400px;
-        }
-        #noteanim .box {
-            position: absolute;
-            height: 40px;
-        }
-    </style>
-</head>
-<body>
-    <div class="app">
-        <ul id="notelist"></ul>
-        <input id="notetext" type="text" readonly />
-        <div id="noteanim"></div>
-    </div>
-    <script>
-        (function () {
-            window.Notes = {};
-            Notes.notes = ["до", "ре", "ми", "фа", "соль", "ля", "си"];
-            Notes.colors = ["#EB5F50", "#EBD767", "#3886EB", "#EEA198", "#4F9E46", "#B8632C", "#5444EB"];
-            Notes.waitingChilds = [];
-            Notes.list = [];
-            Notes.update = function () {
-                var el,
-                    rect,
-                    alpha = 0,
-                    offset = 0,
-                    min_y = 400,
-                    bodyRect = noteanim.getBoundingClientRect();
-                for (var i = noteanim.children.length - 1; i >= 0; i--) {
-                    el = noteanim.children[i];
-                    rect = el.getBoundingClientRect();
-                    offset = rect.top - bodyRect.top;
-                    if (min_y > offset) {
-                        min_y = offset;
-                    }
-                    if (offset > 300) {
-                        alpha = parseFloat(el.style.opacity) - 0.05;
-                        if (alpha <= 0) {
-                            el.remove();
-                            continue;
-                        }
-                        try {
-                            el.style.opacity = alpha;
-                        } catch (e) { }
-                    }
-                    el.style.top = (offset + 1) + "px";
+    <head>
+        <meta charset="utf-8">
+        <title>Задание 6 | Hello, world!</title>
+        <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
+.app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+#notelist {
+    width: 100%;
+    display: inline-flex;
+    list-style-type: none;
+    user-select: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+#notelist li {
+    line-height: 250px;
+    height: 150px;
+    cursor: pointer;
+    text-align: center;
+    flex: 1 1 auto;
+}
+#notelist li:not(:first-child) {
+    margin-left: 5px;
+}
+#notelist li:active {
+    transform: translateY(-5%);
+}
+#notetext {
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    margin: 5px 0;
+    border: 1px solid #eeeeee;
+    outline: none;
+}
+#noteanim {
+    position: relative;
+    height: 400px;
+}
+#noteanim .box {
+    position: absolute;
+    height: 40px;
+}
+</style>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <div id="menu" class="c-center">
+                    <img id="btnclose" src="../img/close.png">
+                    <img class="logo" src="../img/logo.png">
+                    <ul>
+                        <a href="../index.html"><li>Главная</li></a>
+                        <a href="../play.html"><li>Мини-игра</li></a>
+                        <a href="../about.html"><li>О сайте</li></a>
+                    </ul>
+                </div>
+                <div class="c-center mobile">
+                    <img id="btnmenu" src="../img/menu.png">
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="c-center">
+                <article>
+                    <div class="c-box">
+                        <h4>Задание 6</h4>
+                        <p>
+                            <a href="../img/image.png" download>Скачать вариант 1.</a><br>
+                            <a href="../img/image2.png" download>Скачать вариант 2.</a>
+                        </p>
+                    </div>
+                    <div class="c-box">
+                        <h4>Пример работы</h4>
+                        <div class="app example">
+                            <ul id="notelist"></ul>
+                            <input id="notetext" type="text" readonly />
+                            <div id="noteanim"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="c-center">
+                    <ul>
+                        <a href="../index.html"><li>Главная</li></a>
+                        <a href="../about.html"><li>О сайте</li></a>
+                        <a href="../sitemap.html"><li>Карта сайта</li></a>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+        <script>(function () {
+    window.Notes = {};
+    Notes.notes = ["до", "ре", "ми", "фа", "соль", "ля", "си"];
+    Notes.colors = ["#EB5F50", "#EBD767", "#3886EB", "#EEA198", "#4F9E46", "#B8632C", "#5444EB"];
+    Notes.waitingChilds = [];
+    Notes.list = [];
+    Notes.update = function () {
+        var el,
+            rect,
+            alpha = 0,
+            offset = 0,
+            min_y = 400,
+            bodyRect = noteanim.getBoundingClientRect();
+        for (var i = noteanim.children.length - 1; i >= 0; i--) {
+            el = noteanim.children[i];
+            rect = el.getBoundingClientRect();
+            offset = rect.top - bodyRect.top;
+            if (min_y > offset) {
+                min_y = offset;
+            }
+            if (offset > 300) {
+                alpha = parseFloat(el.style.opacity) - 0.05;
+                if (alpha <= 0) {
+                    el.remove();
+                    continue;
                 }
-                if (Notes.waitingChilds.length > 0 && min_y > 50) {
-                    noteanim.append(Notes.waitingChilds[0]);
-                    Notes.waitingChilds.splice(0, 1);
-                }
-                requestAnimationFrame(Notes.update);
+                try {
+                    el.style.opacity = alpha;
+                } catch (e) { }
+            }
+            el.style.top = (offset + 1) + "px";
+        }
+        if (Notes.waitingChilds.length > 0 && min_y > 50) {
+            noteanim.append(Notes.waitingChilds[0]);
+            Notes.waitingChilds.splice(0, 1);
+        }
+        requestAnimationFrame(Notes.update);
+    };
+    window.addEventListener("load", function () {
+        var el;
+        for (var i = 0; i < Notes.notes.length; i++) {
+            el = document.createElement("li");
+            el.style.background = Notes.colors[i];
+            el.innerText = Notes.notes[i];
+            el.onclick = function () {
+                var box = document.createElement("div"),
+                    rect = this.getBoundingClientRect();
+                box.className = "box";
+                box.innerText = "";
+                box.style.width = rect.width + "px";
+                box.style.left = ( rect.left - notelist.getBoundingClientRect().left ) + "px";
+                box.style.opacity = 1;
+                box.style.background = this.style.background;
+                notetext.value += this.innerText + " ";
+                Notes.waitingChilds.push(box);
             };
-            window.addEventListener("load", function () {
-                var el;
-                for (var i = 0; i < Notes.notes.length; i++) {
-                    el = document.createElement("li");
-                    el.style.background = Notes.colors[i];
-                    el.innerText = Notes.notes[i];
-                    el.onclick = function () {
-                        var box = document.createElement("div"),
-                            rect = this.getBoundingClientRect();
-                        box.className = "box";
-                        box.innerText = "";
-                        box.style.width = rect.width + "px";
-                        box.style.left = ( rect.left - notelist.getBoundingClientRect().left ) + "px";
-                        box.style.opacity = 1;
-                        box.style.background = this.style.background;
-                        notetext.value += this.innerText + " ";
-                        Notes.waitingChilds.push(box);
-                    };
-                    notelist.appendChild(el);
-                }
-                requestAnimationFrame(Notes.update);
-            });
-        })();
-    </script>
-</body>
+            notelist.appendChild(el);
+        }
+        requestAnimationFrame(Notes.update);
+    });
+})();
+</script>
+    </body>
 </html>

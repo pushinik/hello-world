@@ -2,6 +2,449 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+body {
+    background: #fafafa;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, Oxygen, Roboto, Helvetica, Arial, sans-serif;
+}
 
+.topbar {
+    background: #000000;
+    color: #ffffff;
+    height: 29px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 7px;
+    margin-bottom: 49px;
+    text-align: right;
+}
+
+#header {
+    width: 100%;
+    height: 49px;
+    font-size: 20px;
+    line-height: 20px;
+    background: #ffffff;
+    position: absolute;
+    top: 29px;
+    box-shadow: 0 2px 4px #bdbdbd;
+    z-index: 10;
+}
+
+.topfixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#header .logo {
+    height: 49px;
+    float: left;
+}
+
+#btnmenu, #btnclose {
+    visibility: hidden;
+    cursor: pointer;
+    height: 49px;
+}
+
+#header ul {
+    float: right;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#header li {
+    display: inline-block;
+    min-width: 100px;
+    padding: 13px;
+    height: 49px;
+    transition: background 0.5s;
+}
+
+#header li.selected {
+    background: #f2f2c7;
+}
+
+#header li:not(.selected):hover {
+    background: #eeeeee;
+}
+
+.container {
+    min-height: 100vh;
+    padding: 5px;
+}
+
+.container:not(.mainpage) {
+    padding-top: 44px;
+}
+
+.c-center {
+    width: 100%;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer {
+    background: #1a1a1a;
+    padding: 40px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.footer li {
+    padding: 5px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.c-left {
+    float: left;
+    width: 30%;
+    padding: 0 5px 0 0;
+}
+
+.c-right {
+    float: right;
+    width: 70%;
+    padding: 0 0 0 5px;
+}
+
+.container::after {
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+.container h3 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.c-left h4 {
+    margin-top: 13px;
+    text-align: center;
+}
+
+.c-box {
+    background: #ffffff;
+    box-shadow: 0 1px 2px #bdbdbd;
+    border-radius: 10px;
+    position: relative;
+    margin: 15px 0;
+    text-align: left;
+    transition: box-shadow 0.5s;
+}
+
+.c-right .c-box:hover {
+    box-shadow: 0 5px 10px #a1a1a1;
+}
+
+.preview img {
+    display: block;
+    width: 100%;
+    opacity: 0.9;
+    box-shadow: inset 0 2px 4px 8px #bdbdbd;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.c-right .c-box:hover img {
+    opacity: 0.99;
+    transform: scale(1.1);
+}
+
+p img{
+    width: 100%;
+    max-width: 600px;
+}
+
+.c-box p {
+    font-size: 14px;
+    padding: 0 20px 15px 15px;
+}
+
+.c-box a {
+    color: #a65ea1;
+}
+
+.c-box h4 {
+    color: #59593c;
+    padding: 15px 20px 5px 15px;
+}
+
+.c-box .preview {
+    background: #000000;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.c-box::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 5px;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.slider {
+    background: #eeeeee;
+}
+
+.slider .slides{
+    display: block;
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides input{
+    display: none;
+}
+
+.slider .slide-container{
+    display: block;
+}
+
+.slider .slide{
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 400px;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+    overflow: hidden;
+}
+
+.slider img {
+    display: block;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.slider .nav label {
+    display: none;
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity .2s;
+}
+
+.slider .nav label img {
+    margin-top: 180px;
+    width: 49px;
+    height: 49px;
+}
+
+.slider .nav label:hover {
+    opacity: 1;
+}
+
+.slider .next{
+    right: 0;
+}
+
+.slider input:checked+.slide-container .slide{
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+.slider input:checked+.slide-container .nav label{
+    display: block;
+}
+
+.slider .nav-dots{
+    width: 100%;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.slider .nav-dot{
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slider .nav-dot:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider input#img-1:checked~.nav-dots label#img-dot-1,
+.slider input#img-2:checked~.nav-dots label#img-dot-2,
+.slider input#img-3:checked~.nav-dots label#img-dot-3 {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#calendar {
+    padding: 10px;
+}
+
+.calendar-month {
+    background: #a6a680;
+    color: #ffffff;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.calendar-left, .calendar-right {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    top: 0;
+}
+
+.calendar-left {
+    left: 0;
+}
+
+.calendar-right {
+    right: 0;
+}
+
+.calendar-month, .calendar-day {
+    text-align: center;
+}
+
+.calendar-cell, .calendar-day {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    width: 14%;
+}
+
+.calendar-day.current {
+    background: #eeeeee;
+}
+
+.calendar-day.selected {
+    background: #f2f2c7;
+}
+
+.calendar-day.haveitem:not(.selected):not(.current):not(:hover) {
+    border-bottom-color: #59593c;
+}
+
+.calendar-day:hover {
+    background: #eeeeee;
+    cursor: pointer;
+}
+
+.calendar-day.current, .calendar-day.selected, .calendar-day:hover {
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding-top: 5px;
+    cursor: pointer;
+    color: #59593c;
+}
+
+.c-time {
+    font-size: 14px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+@media screen and (max-width: 800px) {
+    .c-center {
+        text-align: center;
+    }
+    #header ul, #header .logo {
+        float: none;
+    }
+    #menu li, .logo {
+        display: block;
+        margin: 0 auto;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+    #menu li {
+        width: 100%;
+    }
+    #menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: #ffffff;
+        z-index: 100;
+        visibility: hidden;
+        animation: menu-start 0.5s;
+    }
+    #btnmenu {
+        visibility: visible;
+    }
+    #btnclose {
+        visibility: inherit;
+    }
+    .c-left, .c-right {
+        padding: 0;
+        width: 100%;
+        float: none;
+    }
+}
+
+.c-box ul {
+    padding: 10px 20px;
+}
+
+.c-box li {
+    padding: 5px;
+}
+
+.example {
+    padding: 10px;
+}
+
+@keyframes menu-start {
+    0% {
+        transform: scale(0.9) translateY(-100px);
+    }
+}

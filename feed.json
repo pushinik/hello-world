@@ -1,18 +1,56 @@
 {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Hello, world!",
-    "home_page_url": "https://example.org/",
-    "feed_url": "https://example.org/feed.json",
+    "home_page_url": "https://pushinik.github.io/hello-world/",
+    "feed_url": "https://pushinik.github.io/hello-world/feed.json",
     "items": [
         {
+            "id": "6",
+            "title": "Задание 6",
+            "image": "img/image.png",
+            "summary": "На странице расположены блоки с нотами. При нажатии на ноты, ниже появляются слова, обозначающие ноты и блоки соответствующего цвета.",
+            "date_published": "2022-10-20T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/js-element.html"
+        },
+        {
+            "id": "5",
+            "title": "Задание 5",
+            "image": "img/var1.PNG",
+            "summary": "На странице располагаются текстовое поле и кнопка. При нажатии на кнопку Выбрать пользователю предлагается ввести три стороны треугольника.",
+            "date_published": "2022-10-06T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/strojka.html"
+        },
+        {
+            "id": "4",
+            "title": "Задание 4",
+            "image": "img/Безымянный.png",
+            "summary": "Создать элемент flexbox, который состоит из заданных изображений и слов.",
+            "date_published": "2022-09-29T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/flexbox.html"
+        },
+        {
+            "id": "3",
+            "title": "Задание 3",
+            "image": "img/задание.PNG",
+            "summary": "Нарисовать рисунок на CSS.",
+            "date_published": "2022-09-22T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/picture-css.html"
+        },
+        {
             "id": "2",
-            "content_text": "This is a second item.",
-            "url": "https://example.org/second-item"
+            "title": "Задание 2",
+            "image": "img/mouse1.png",
+            "summary": "Отработать три состояния мыши: покой, наведение, нажатие. При каждом состоянии отображается свой смайлик.",
+            "date_published": "2022-09-15T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/links.html"
         },
         {
             "id": "1",
-            "content_html": "<p>Hello, world!</p>",
-            "url": "https://example.org/initial-post"
+            "title": "Задание 1",
+            "image": "img/tab.png",
+            "summary": "Создать страницу сайта. Разместить простую таблицу.",
+            "date_published": "2022-09-15T12:00:00+00:00",
+            "url": "https://pushinik.github.io/hello-world/pages/table.html"
         }
     ]
 }
